@@ -1,0 +1,449 @@
+$side-font: 4.2rem;
+$max-z: 1000;
+$border-radius: 30px;
+$trans-color: rgba(255, 255, 255, 0.15);
+$font: 'Poppins', sans-serif;
+
+html {
+	font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(to right, #ddd, #999);
+	height: 100vh;
+	overflow-x: hidden;
+}
+
+.main-hood {
+	height: 85vh;
+	min-height: 620px;
+	width: 90vw;
+	min-width: 700px;
+	max-width: 1400px;
+	background-image: linear-gradient(to right, rgb(0, 0, 20), rgb(1, 1, 50));
+	border-radius: 50px;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	overflow: hidden;
+}
+
+.wrapper {
+	height: 500%;
+	width: 80%;
+	position: relative;
+	margin: auto;
+	transform: translateY(-40%);
+	transition: transform 0.3s ease-out;
+}
+
+.container {
+	width: 100%;
+	height: 20%;
+	display: grid;
+	place-items: center;
+}
+
+.statusbar {
+	position: absolute;
+	width: 100%;
+	height: 4rem;
+	top: 1.8rem;
+	font-family: 'fira code';
+	font-size: 1.6rem;
+	color: white;
+	display: flex;
+	justify-content: center;
+
+	.right-status {
+		display: inline-flex;
+		position: absolute;
+		right: 4rem;
+		width: 20rem;
+		justify-content: space-evenly;
+	}
+	.time {
+		font-weight: 400;
+		position: relative;
+		left: 4rem;
+	}
+
+	img {
+		height: 20px;
+	}
+}
+
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	color: white;
+	height: 60rem;
+	width: 100px;
+	position: relative;
+	left: 25px;
+	border-radius: $border-radius;
+	// align-self: center;
+	background-color: $trans-color;
+	justify-content: space-evenly;
+	align-items: center;
+
+	.fas {
+		font-size: $side-font;
+		background-image: linear-gradient(to bottom, #fff, #666);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		cursor: pointer;
+		position: relative;
+	}
+}
+
+.nav {
+	position: absolute;
+	height: $side-font + 2.2rem;
+	top: 5.5rem;
+	border-left: 10px solid cyan;
+	left: 0;
+	border-radius: $border-radius;
+	box-shadow: 1rem 0 3.2rem rgb(8, 212, 248);
+	transform: translateY(21.4rem);
+	transition: transform 0.25s ease-out;
+}
+
+.container {
+	max-width: 1200px;
+	margin: auto;
+}
+
+.location {
+	height: 85%;
+	width: 100%;
+	border-radius: $border-radius;
+	margin: auto;
+}
+
+.home {
+	height: 85%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.car-hood {
+	height: 60%;
+	border-left: 3px solid rgb(3, 181, 252);
+	border-right: 3px solid rgb(3, 181, 252);
+	box-shadow: inset 0 0 4rem rgba(255, 255, 255, 0.26);
+	width: 85%;
+	border-radius: 100vw;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.speed {
+	color: #ddd;
+	font-family: $font;
+	.speed-num {
+		font-size: 8rem;
+		font-weight: 500;
+	}
+	.speed-unit {
+		font-size: 3rem;
+		font-style: italic;
+		text-transform: lowercase;
+	}
+	.speed-info {
+		font-size: 2rem;
+		font-style: italic;
+	}
+	.speed-flicker {
+		animation: flicker 1s infinite;
+	}
+}
+
+.mode {
+	font-size: 2rem;
+	border-bottom: 1px solid white;
+	padding-bottom: 5px;
+}
+
+.gears {
+	font-size: 2rem;
+	padding-top: 2rem;
+	font-weight: 600;
+}
+
+.music-hood {
+	margin-top: 2rem;
+	height: 30%;
+	width: 85%;
+	border-radius: $border-radius;
+	background-color: $trans-color;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.song-img {
+	height: 13rem;
+	animation: rotate 4s infinite linear forwards;
+}
+
+.img-rotate {
+	animation-play-state: paused;
+}
+
+.car-img {
+	height: 25rem;
+}
+
+// Music section
+
+.music-section {
+	height: 85%;
+	width: 100%;
+	position: relative;
+}
+
+.music-selection {
+	height: 60%;
+	background-color: $trans-color;
+	width: 100%;
+	border-radius: $border-radius;
+	position: relative;
+	input {
+		display: none;
+	}
+}
+
+.queue-text {
+	color: cyan;
+	font-family: $font;
+	text-transform: uppercase;
+	margin-top: 2rem;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	font-size: 3rem;
+	letter-spacing: 0.3rem;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.add-file {
+	height: 40px;
+	position: absolute;
+	right: 2rem;
+	top: 2rem;
+	cursor: pointer;
+}
+
+.separator {
+	width: 95%;
+	margin-block: 1rem;
+	height: 2px;
+	background-color: rgb(0, 225, 255);
+	position: relative;
+	top: 8rem;
+	box-shadow: 0 0 4rem cyan;
+	margin-inline: auto;
+}
+
+.song-list {
+	position: relative;
+	margin-top: 10rem;
+	margin-inline: auto;
+	max-height: 60%;
+	width: 90%;
+	overflow: auto;
+	margin-bottom: 4rem;
+
+	.songs {
+		color: cyan;
+		font-family: $font;
+		font-size: 2rem;
+		margin-block: 1rem;
+		cursor: pointer;
+		width: 100%;
+		text-align: center;
+		letter-spacing: 0.2rem;
+		font-weight: 300;
+		font-style: italic;
+		height: 100%;
+		width: 100%;
+		border-radius: 2rem;
+	}
+
+	.songs--dark {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+}
+
+.music-player {
+	position: absolute;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	top: 70%;
+	height: 30%;
+	width: 100%;
+	background-color: $trans-color;
+	border-radius: $border-radius;
+}
+
+.progress-container {
+	width: 90%;
+	height: 6px;
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	transform: translateX(-50%);
+	cursor: pointer;
+	background-color: $trans-color;
+	border-radius: 100vw;
+}
+
+.progress {
+	width: 0;
+	cursor: progress;
+	border-radius: 100vw;
+	height: 100%;
+	background-color: cyan;
+	box-shadow: 0 0 4rem cyan;
+}
+
+.music-control-container {
+	height: 85%;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.song-name,
+.song-name-hood {
+	color: cyan;
+	font-family: $font;
+	font-size: 2rem;
+	letter-spacing: 0.2rem;
+	margin-block: 1.5rem;
+}
+
+.song-name-hood {
+	font-size: 2.5rem;
+}
+
+.music-control {
+	display: flex;
+	height: 100%;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+
+	img {
+		height: 50px;
+		cursor: pointer;
+		display: none;
+	}
+	.current-btn,
+	.next-btn,
+	.prev-btn {
+		display: block;
+	}
+
+	.mute {
+		position: absolute;
+		right: 3rem;
+		img {
+			height: 40px;
+		}
+		.sound {
+			display: block;
+		}
+	}
+}
+
+.error {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: $max-z;
+	display: none;
+	background-color: #fff;
+	font-size: 4rem;
+	font-family: $font;
+	font-weight: 700;
+}
+
+.error-con {
+	height: 85%;
+	width: 100%;
+	display: grid;
+	place-items: center;
+}
+
+.error-img {
+	height: 280px;
+}
+
+@media screen and (max-width: 900px) {
+	.error {
+		display: grid;
+		place-items: center;
+	}
+	.main-hood {
+		display: none;
+	}
+}
+
+@media screen and (max-height: 620px) {
+	.error {
+		display: grid;
+		place-items: center;
+	}
+	.main-hood {
+		display: none;
+	}
+}
+
+// Animation keyframes
+
+@keyframes flicker {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

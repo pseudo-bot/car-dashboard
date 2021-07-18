@@ -1,17 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMW Dashboard</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  
+		<title>Dashboard</title>
+		<link rel="icon" href="icons/title.png" type="image/x-icon" />
 
-  <script src="https://kit.fontawesome.com/5d3c8eea54.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Fira+Code:300,regular,500,600,700"
+			rel="stylesheet"
+		/>
 
-</head>
-<body>
-  
-</body>
+		<script
+			src="https://kit.fontawesome.com/5d3c8eea54.js"
+			crossorigin="anonymous"
+		></script>
+
+		<!-- -----------MAPBOX------------ -->
+
+		<script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+		<link
+			href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+			rel="stylesheet"
+		/>
+
+		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+			type="text/css"
+		/>
+
+		<script src="script.js" async></script>
+	</head>
+
+	<body>
+		<div class="error">
+			<span>Device size incompatible!</span>
+		</div>
+		<div class="main-hood">
+			<div class="statusbar">
+				<div class="time"></div>
+				<div class="right-status">
+					<span><img src="icons/location.png" alt="location" /></span>
+					<span><img src="icons/wifi.png" alt="wifi" /></span>
+					<span><img src="icons/bluetooth.png" alt="bluetooth" /></span>
+					<span><img src="icons/signal.png" alt="signal" /></span>
+					<span><img src="icons/smartphone-charger.png" alt="battery" /></span>
+				</div>
+			</div>
+
+			<div class="sidebar">
+				<span class="nav"></span>
+				<span class="fas fa-phone side-btn"></span>
+				<span class="fas fa-map-marker-alt side-btn"></span>
+				<span class="fas fa-fan side-btn"></span>
+				<span class="fas fa-headphones side-btn"></span>
+				<span class="fas fa-volume-up side-btn"></span>
+			</div>
+
+			<div class="wrapper">
+				<div class="container">
+					<img src="images/error.png" class="error-img" alt="error">
+				</div>
+				<div class="container">
+					<div id="map" class="location"></div>
+				</div>
+				<div class="container">
+					<div class="home">
+						<div class="car-hood">
+							<img src="images/car.png" class="car-img" />
+							<div class="speed">
+								<div class="speed-info speed-flicker">Speeding up...</div>
+
+								<span class="speed-num">0</span>
+								<span class="speed-unit"> KMPH</span>
+								<div class="mode">
+									Mode &emsp; &emsp; &ensp;<i>Self Driving</i>
+								</div>
+								<div class="gears">
+									P &emsp; | &emsp; R &emsp; | &emsp; N &emsp; |&emsp; D
+								</div>
+							</div>
+						</div>
+						<div class="music-hood">
+							<img
+								src="images/song_img.png"
+								class="song-img img-rotate"
+								alt=""
+							/>
+							<div class="song-name-hood">Nothing's Playing</div>
+							<div class="controls"></div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="music-section">
+						<div class="music-selection">
+							<audio></audio>
+							<div class="queue-text">Queue</div>
+							<div class="separator"></div>
+							<img src="icons/add-file.png" class="add-file" alt="Add Files" />
+							<input type="file" id="music-input" multiple />
+							<div class="song-list"></div>
+						</div>
+						<div class="progress-container">
+							<div class="progress"></div>
+						</div>
+						<div class="music-player">
+							<img
+								src="images/song_img.png"
+								class="song-img img-rotate"
+								alt=""
+							/>
+							<div class="music-control-container">
+								<div class="song-name">Nothing's Playing</div>
+
+								<div class="music-control">
+									<div>
+										<img src="icons/back.png" class="prev-btn" alt="Previous" />
+									</div>
+									<div>
+										<img
+											src="icons/play.png"
+											class="play-btn m-btn current-btn"
+											alt="Play"
+										/>
+										<img
+											src="icons/pause.png"
+											class="pause-btn m-btn"
+											alt="Pause"
+										/>
+									</div>
+									<div>
+										<img src="icons/next.png" class="next-btn" alt="Next" />
+									</div>
+									<div class="mute">
+										<img
+											src="icons/audio.png"
+											class="mute-btn sound"
+											alt="Speaker"
+										/>
+										<img src="icons/mute.png" class="unmute-btn" alt="Muted" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="error-con"><img src="images/error.png" class="error-img" alt="error"></div>
+
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
